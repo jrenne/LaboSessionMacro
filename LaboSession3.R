@@ -11,7 +11,7 @@
 # --------------------------------
 
 # Load data:
-data <- read.csv("http://jeanpaul.renne.pagesperso-orange.fr/UNIL/dataLaboSession3a.csv")
+data <- read.csv("https://raw.githubusercontent.com/jrenne/LaboSessionMacro/main/Data/dataLaboSession3a.csv")
 y <- data$V1
 plot(y,type="l")
 
@@ -139,7 +139,7 @@ for(p in 0:max.p){
 # --------------------------------
 
 # Load data:
-data <- read.csv("http://jeanpaul.renne.pagesperso-orange.fr/UNIL/dataLaboSession3b.csv")
+data <- read.csv("https://raw.githubusercontent.com/jrenne/LaboSessionMacro/main/Data/dataLaboSession3b.csv")
 y <- data$V1
 plot(y,type="l")
 T <- length(y)
@@ -150,11 +150,8 @@ T <- length(y)
 # --------------------------------
 
 
-#swiss_cpi <- read.csv("~/Google Drive/cours/UNIL/Rcode/data/swiss_cpi.csv")
-swiss_cpi <- read.csv("http://jeanpaul.renne.pagesperso-orange.fr/UNIL/swiss_cpi.csv")
-dates <- as.Date(
-  paste("01/",swiss_cpi$Date,sep=""),
-  "%d/%m/%Y")
+swiss_cpi <- read.csv("https://raw.githubusercontent.com/jrenne/LaboSessionMacro/main/Data/Swiss_CPI.csv")
+dates <- as.Date(swiss_cpi$Date)
 cpi <- log(swiss_cpi$CPI)
 T <- length(cpi)
 y <- 100 * (cpi[13:T] - cpi[1:(T-12)])

@@ -72,12 +72,9 @@ plot(Y[,2],type="l",main="Response of y2 to u2")
 # --------------------------------
 
 # Load data:
-library (readr)
-urlfile="https://github.com/jrenne/LaboSessionMacro/blob/main/Data/dataLaboSession4_BQ.csv"
-mydata<-read_csv(url(urlfile))
 
-dataBQ <- read.csv("https://github.com/jrenne/LaboSessionMacro/blob/main/Data/dataLaboSession4_BQ.csv")
-dataBQ$dates <- as.Date(dataBQ$dates,"%m/%d/%Y")
+dataBQ <- read.csv("https://raw.githubusercontent.com/jrenne/LaboSessionMacro/main/Data/dataLaboSession4_BQ.csv")
+dataBQ$dates <- as.Date(dataBQ$dates,"%m/%d/%y")
 
 First.date <- "1948-04-01"
 Last.date  <- "1988-01-01"
