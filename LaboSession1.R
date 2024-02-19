@@ -1,8 +1,8 @@
-# =============================================================
+# ==============================================================================
 # Macroeconometrics
-# Laboratory session 2 - Long run variance
-# Jean-Paul Renne, 2016
-# =============================================================
+# Jean-Paul Renne, 2024
+# Laboratory session 1 - Long run variance
+# ==============================================================================
 
 # Exercise 1
 # --------------------------------
@@ -52,7 +52,7 @@ print(NW.LongRunVariance(X,q))
 
 # Question 1.d:
 
-data <- read.csv("http://jeanpaul.renne.pagesperso-orange.fr/UNIL/dataLaboSession1a.csv")
+data <- read.csv("https://raw.githubusercontent.com/jrenne/LaboSessionMacro/main/Data/dataLaboSession1a.csv")
 plot(data$x,type="l")
 
 
@@ -90,14 +90,15 @@ simul.ar <- function(c,rho,sigma,T,x.0){
 # Exercise 3 - Debt over GDP
 # --------------------------------
 
-data_fred <- read.csv("http://jeanpaul.renne.pagesperso-orange.fr/UNIL/data_fred_quarterly.csv")
+data_fred <- read.csv("https://raw.githubusercontent.com/jrenne/LaboSessionMacro/main/Data/dataFredQuarterlyMScELabSess1.csv")
 
 # Compute appropriate date format:
 data_fred$DATE <- as.Date(data_fred$DATE,"%Y-%m-%d")
 
 # Remove missing variables:
-D <- data_fred$GFDEGDQ188S[77:275]
-dates <- data_fred$DATE[77:275]
+indic_available_data <- complete.cases(data_fred)
+D     <- data_fred$GFDEGDQ188S[indic_available_data]
+dates <- data_fred$DATE[indic_available_data]
 
 # Length of the sample:
 T <- length(D)

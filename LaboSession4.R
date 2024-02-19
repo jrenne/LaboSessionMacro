@@ -1,10 +1,10 @@
-# =============================================================
+# ==============================================================================
 # Macroeconometrics
-# Laboratory session 2 - VAR models
-# Jean-Paul Renne, 2016
-# =============================================================
+# Jean-Paul Renne, 2024
+# Laboratory session 4 - VAR models
+# ==============================================================================
 # This session  requires a preliminary run of various_proc_TS.R
-# =============================================================
+# ==============================================================================
 
 library(vars)
 
@@ -72,7 +72,11 @@ plot(Y[,2],type="l",main="Response of y2 to u2")
 # --------------------------------
 
 # Load data:
-dataBQ <- read.csv("http://jeanpaul.renne.pagesperso-orange.fr/UNIL/dataLaboSession4_BQ.csv")
+library (readr)
+urlfile="https://github.com/jrenne/LaboSessionMacro/blob/main/Data/dataLaboSession4_BQ.csv"
+mydata<-read_csv(url(urlfile))
+
+dataBQ <- read.csv("https://github.com/jrenne/LaboSessionMacro/blob/main/Data/dataLaboSession4_BQ.csv")
 dataBQ$dates <- as.Date(dataBQ$dates,"%m/%d/%Y")
 
 First.date <- "1948-04-01"

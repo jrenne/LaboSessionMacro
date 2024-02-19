@@ -1,14 +1,14 @@
-# =============================================================
+# ==============================================================================
 # Macroeconometrics
+# Jean-Paul Renne, 2024
 # Laboratory session 2 - ARMA Processes
-# Jean-Paul Renne, 2016
-# =============================================================
+# ==============================================================================
 # This session  requires a preliminary run of various_proc_TS.R
-# =============================================================
+# ==============================================================================
 
 
 # Exercise 1
-# --------------------------------
+# ------------------------------------------------------------------------------
 
 # Question 1.b:
 
@@ -62,7 +62,7 @@ abline(v=vector.gamma[n+1],col="red",lwd=3)
 
 
 # Exercise 2
-# --------------------------------
+# ------------------------------------------------------------------------------
 
 # Question 2.a:
 
@@ -73,18 +73,18 @@ abline(v=vector.gamma[n+1],col="red",lwd=3)
 
 
 # Exercise 3
-# --------------------------------
+# ------------------------------------------------------------------------------
 
-data <- read.csv("http://jeanpaul.renne.pagesperso-orange.fr/UNIL/dataLaboSession2a.csv")
+data <- read.csv("https://raw.githubusercontent.com/jrenne/LaboSessionMacro/main/Data/dataLaboSession2a.csv")
 y <- data$V1
 plot(y,type="l")
 
 
 
 # Exercise 4
-# --------------------------------
+# ------------------------------------------------------------------------------
 
-data <- read.csv("http://jeanpaul.renne.pagesperso-orange.fr/UNIL/dataLaboSession2b.csv")
+data <- read.csv("https://raw.githubusercontent.com/jrenne/LaboSessionMacro/main/Data/dataLaboSession2b.csv")
 w <- data$V1
 x <- data$V2
 y <- data$V3
