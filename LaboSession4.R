@@ -74,7 +74,7 @@ plot(Y[,2],type="l",main="Response of y2 to u2")
 # Load data:
 
 dataBQ <- read.csv("https://raw.githubusercontent.com/jrenne/LaboSessionMacro/main/Data/dataLaboSession4_BQ.csv")
-dataBQ$dates <- as.Date(dataBQ$dates,"%m/%d/%y")
+dataBQ$dates <- as.Date(dataBQ$dates,"%m/%d/%")
 
 First.date <- "1948-04-01"
 Last.date  <- "1988-01-01"
