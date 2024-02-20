@@ -74,16 +74,16 @@ plot(Y[,2],type="l",main="Response of y2 to u2")
 # Load data:
 
 dataBQ <- read.csv("https://raw.githubusercontent.com/jrenne/LaboSessionMacro/main/Data/dataLaboSession4_BQ.csv")
-dataBQ$dates <- as.Date(dataBQ$dates,"%m/%d/%")
+dataBQ$Dates <- as.Date(dataBQ$Dates,"%Y-%m-%d")
 
 First.date <- "1948-04-01"
 Last.date  <- "1988-01-01"
 Mid.date   <- "1974-01-01"
 
 # Find position of the previous dates in the dataframe:
-fst.date.indic <- which(dataBQ$dates==First.date)
-lst.date.indic <- which(dataBQ$dates==Last.date)
-mid.date.indic <- which(dataBQ$dates==Mid.date)
+fst.date.indic <- which(dataBQ$Dates==First.date)
+lst.date.indic <- which(dataBQ$Dates==Last.date)
+mid.date.indic <- which(dataBQ$Dates==Mid.date)
 
 first.sample.part <- 1:(mid.date.indic-fst.date.indic)
 secnd.sample.part <- (mid.date.indic-fst.date.indic + 1):(lst.date.indic-fst.date.indic+1)
@@ -104,20 +104,20 @@ delta.Y <- (y - y_1)*100
 par(mfrow=c(2,1))
 
 # ------ GDP growth:
-plot(dataBQ$dates,delta.Y,type="l",main="GDP quarterly growth rate",xlab="",ylab="",lwd=2)
+plot(dataBQ$Dates,delta.Y,type="l",main="GDP quarterly growth rate",xlab="",ylab="",lwd=2)
 # Remove means of GDP growth on two subsamples:
 delta.Y[first.sample.part] <- delta.Y[first.sample.part] - mean(delta.Y[first.sample.part],na.rm=TRUE)
 delta.Y[secnd.sample.part] <- delta.Y[secnd.sample.part] - mean(delta.Y[secnd.sample.part],na.rm=TRUE)
-lines(dataBQ$dates,delta.Y,col="red",lwd=2)
+lines(dataBQ$Dates,delta.Y,col="red",lwd=2)
 
 
-plot(dataBQ$dates,dataBQ$u,type="l",ylim=c(-3,12),main="Unemployment rate",xlab="",ylab="",lwd=2)
+plot(dataBQ$Dates,dataBQ$u,type="l",ylim=c(-3,12),main="Unemployment rate",xlab="",ylab="",lwd=2)
 # Remove trend in unemployment series:
 u <- dataBQ$u
 trend <- 1:length(u)
 eq <- lm(u ~ trend)
 u <- eq$residuals
-lines(dataBQ$dates,u,col="red",lwd=2)
+lines(dataBQ$Dates,u,col="red",lwd=2)
 abline(h=0,col="grey")
 
 
